@@ -4,7 +4,7 @@
 This project is a game-based learning platform. Multiple-choice quizzes can be created via a dashboard and loaded into a game via a gamecode. The game is a 2D platformer game for a playful answering of multiple-choice-questions. This project was developed in the context of a master's thesis at Fernuni Hagen.
 
 
-<img src="game-preview.png">
+<img src="game-preview.png" width="70%">
 
 ## Project Structure
 - dashboard - Frontend interface for users to create multiple-choice quizzes
