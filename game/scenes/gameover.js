@@ -15,11 +15,11 @@ class GameOver extends Phaser.Scene {
    * Lädt die benötigten Bilder für die Szene.
    */
   preload() {
-    this.load.spritesheet('itemsSpriteSheet', '../assets/kenney_pixel-platformer/Tilemap/tilemap_packed.png', {
+    this.load.spritesheet('itemsSpriteSheet', 'assets/kenney_pixel-platformer/Tilemap/tilemap_packed.png', {
       frameWidth: 18,
       frameHeight: 18
     });
-    this.load.image('background', '../assets/kenney_pixel-platformer/Tiles/Backgrounds/tile_0015.png');
+    this.load.image('background', 'assets/kenney_pixel-platformer/Tiles/Backgrounds/tile_0015.png');
   }
 
    /**

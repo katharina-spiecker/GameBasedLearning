@@ -15,28 +15,28 @@ class MainGame extends Phaser.Scene {
    */
   preload() {
     // Laden von Audio-Dateien für Soundeffekte
-    this.load.audio("coinSound", "../assets/audio/kenney_music_jingles/jingles_STEEL16.ogg");
-    this.load.audio("winSound", "../assets/audio/kenney_music_jingles/jingles_STEEL02.ogg");
-    this.load.audio("gameOverSound", "../assets/audio/kenney_music_jingles/jingles_PIZZI07.ogg");
-    this.load.audio("backgroundMusic", "../assets/audio/jdsherbert/cosmic-star.ogg");
-    this.load.audio("wrongAnswerSound", "../assets/audio/kenney_sci-fi-sounds/Audio/impactMetal_002.ogg");
-    this.load.audio("alienLanding", "../assets/audio/kenney_sci-fi-sounds/Audio/doorOpen_001.ogg");
+    this.load.audio("coinSound", "assets/audio/kenney_music_jingles/jingles_STEEL16.ogg");
+    this.load.audio("winSound", "assets/audio/kenney_music_jingles/jingles_STEEL02.ogg");
+    this.load.audio("gameOverSound", "assets/audio/kenney_music_jingles/jingles_PIZZI07.ogg");
+    this.load.audio("backgroundMusic", "assets/audio/jdsherbert/cosmic-star.ogg");
+    this.load.audio("wrongAnswerSound", "assets/audio/kenney_sci-fi-sounds/Audio/impactMetal_002.ogg");
+    this.load.audio("alienLanding", "assets/audio/kenney_sci-fi-sounds/Audio/doorOpen_001.ogg");
     // Laden von Spritesheet mit Bildern der Spielobjekte
-    this.load.spritesheet('itemsSpriteSheet', '../assets/kenney_pixel-platformer/Tilemap/tilemap_packed.png', {
+    this.load.spritesheet('itemsSpriteSheet', 'assets/kenney_pixel-platformer/Tilemap/tilemap_packed.png', {
       frameWidth: 18,
       frameHeight: 18
     });
     // Laden der Hintergrundbildern
-    this.load.image('tilesBg', '../assets/kenney_pixel-platformer/Tilemap/tilemap-backgrounds_packed.png');
+    this.load.image('tilesBg', 'assets/kenney_pixel-platformer/Tilemap/tilemap-backgrounds_packed.png');
     // Laden der Avatar-Bilder
-    this.load.spritesheet('spriteSheet', '../assets/kenney_pixel-platformer/Tilemap/tilemap-characters_packed.png', {
+    this.load.spritesheet('spriteSheet', 'assets/kenney_pixel-platformer/Tilemap/tilemap-characters_packed.png', {
       frameWidth: 24, 
       frameHeight: 24
     });
     // Laden der Levelkarten im JSON-Format
-    this.load.tilemapTiledJSON('level-1', '../assets/tilemaps/level-1.tmj');
-    this.load.tilemapTiledJSON('level-2', '../assets/tilemaps/level-2.tmj');
-    this.load.tilemapTiledJSON('level-3', '../assets/tilemaps/level-3.tmj');
+    this.load.tilemapTiledJSON('level-1', 'assets/tilemaps/level-1.tmj');
+    this.load.tilemapTiledJSON('level-2', 'assets/tilemaps/level-2.tmj');
+    this.load.tilemapTiledJSON('level-3', 'assets/tilemaps/level-3.tmj');
   }
 
   /**

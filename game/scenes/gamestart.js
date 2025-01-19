@@ -17,7 +17,7 @@ class GameStart extends Phaser.Scene {
    * Lädt alle benötigten Ressourcen für die Szene.
    */
   preload() {
-    this.load.spritesheet('spriteSheet', '../assets/kenney_pixel-platformer/Tilemap/tilemap-characters_packed.png', {
+    this.load.spritesheet('spriteSheet', 'assets/kenney_pixel-platformer/Tilemap/tilemap-characters_packed.png', {
       frameWidth: 24,
       frameHeight: 24
     });
