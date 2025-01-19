@@ -1,0 +1,556 @@
+{
+	"id": "41bba0b3-ddbb-46af-beda-ab66e308b8ce",
+	"name": "Functional testing Quizzes-API",
+	"timestamp": "2024-12-14T09:20:04.675Z",
+	"collection_id": "12750497-300ed7f5-8f64-4ae4-b63e-2eb3c4112b49",
+	"folder_id": "12750497-c56c8715-2d7a-4d29-a2a2-e32c13bbb9e0",
+	"environment_id": "0",
+	"totalPass": 28,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2024-12-14T09:20:02.876Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "bf433e36-3c48-4d93-96e2-af8550475fa0",
+			"name": "Erstellt ein neues Quiz",
+			"url": "http://localhost:3000/api/quizzes",
+			"time": 801,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Response status code is 201": true,
+				"Response has the required fields": true,
+				"Acknowledged is a boolean value": true,
+				"InsertedId should not be an empty string": true,
+				"Content-Type is application/json": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has the required fields": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Acknowledged is a boolean value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"InsertedId should not be an empty string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				801
+			],
+			"allTests": [
+				{
+					"Response status code is 201": true,
+					"Response has the required fields": true,
+					"Acknowledged is a boolean value": true,
+					"InsertedId should not be an empty string": true,
+					"Content-Type is application/json": true
+				}
+			]
+		},
+		{
+			"id": "dec6beca-74c4-4a6b-9333-ce7e51979403",
+			"name": "Erstellt Multiple-Choice-Frage",
+			"url": "http://localhost:3000/api/quizzes/675d4dc343cba73e374af262/questions",
+			"time": 60,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Response status code is 201": true,
+				"Response has the required fields": true,
+				"Question is a non-empty string": true,
+				"Answers array is present and contains at least one element": true,
+				"The response should contain the necessary properties": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has the required fields": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Question is a non-empty string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Answers array is present and contains at least one element": {
+					"pass": 1,
+					"fail": 0
+				},
+				"The response should contain the necessary properties": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				60
+			],
+			"allTests": [
+				{
+					"Response status code is 201": true,
+					"Response has the required fields": true,
+					"Question is a non-empty string": true,
+					"Answers array is present and contains at least one element": true,
+					"The response should contain the necessary properties": true
+				}
+			]
+		},
+		{
+			"id": "1ecb6d3e-9326-4d3a-b34a-c2165380dd17",
+			"name": "Liefert ein Quiz gemäß Id-Pfadparameter",
+			"url": "http://localhost:3000/api/quizzes/675d4dc343cba73e374af262",
+			"time": 58,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response status code is 200": true,
+				"Content-Type header is application/json": true,
+				"Response has the required fields": true,
+				"Each question has the required fields": true,
+				"Each answer has the required fields - text, correct": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has the required fields": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Each question has the required fields": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Each answer has the required fields - text, correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				58
+			],
+			"allTests": [
+				{
+					"Response status code is 200": true,
+					"Content-Type header is application/json": true,
+					"Response has the required fields": true,
+					"Each question has the required fields": true,
+					"Each answer has the required fields - text, correct": true
+				}
+			]
+		},
+		{
+			"id": "32d93007-d4a9-4512-a845-0aa7e1a0b2dc",
+			"name": "Liefert Informationen zu allen Quizzen",
+			"url": "http://localhost:3000/api/quizzes",
+			"time": 59,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response status code is 200": true,
+				"Response has the required fields - topic, _id, gameCode, and quizSize": true,
+				"Topic is a non-empty string": true,
+				"QuizSize is a non-negative integer": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has the required fields - topic, _id, gameCode, and quizSize": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Topic is a non-empty string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"QuizSize is a non-negative integer": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				59
+			],
+			"allTests": [
+				{
+					"Response status code is 200": true,
+					"Response has the required fields - topic, _id, gameCode, and quizSize": true,
+					"Topic is a non-empty string": true,
+					"QuizSize is a non-negative integer": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "0fce3633-1b8f-40d4-9ac7-a5c3881b3a20",
+			"name": "Aktualisiert den Quiz-Themenname",
+			"url": "http://localhost:3000/api/quizzes/675d4dc343cba73e374af262",
+			"time": 57,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				57
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "2ec82724-9420-40d0-8020-d4ef1735d6b6",
+			"name": "Aktualisiert eine Multiple-Choice-Frage",
+			"url": "http://localhost:3000/api/quizzes/675d4dc343cba73e374af262/questions/675d4dc343cba73e374af263",
+			"time": 55,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				55
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "f6fc60b3-6407-4455-9dc2-e55957efa8f1",
+			"name": "Löscht eine Multiple-Choice-Frage aus einem Quiz",
+			"url": "http://localhost:3000/api/quizzes/675d4dc343cba73e374af262/questions/675d4dc343cba73e374af263",
+			"time": 55,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content"
+			},
+			"tests": {
+				"Status code is 204": true
+			},
+			"testPassFailCounts": {
+				"Status code is 204": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				55
+			],
+			"allTests": [
+				{
+					"Status code is 204": true
+				}
+			]
+		},
+		{
+			"id": "a356e3ec-2aa7-4fad-9946-64e1446280ef",
+			"name": "Löscht ein Quiz inklusive aller zugehörigen Multiple-Choice-Fragen Copy",
+			"url": "http://localhost:3000/api/quizzes/675d4dc343cba73e374af262",
+			"time": 54,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content"
+			},
+			"tests": {
+				"Status code is 204": true
+			},
+			"testPassFailCounts": {
+				"Status code is 204": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				54
+			],
+			"allTests": [
+				{
+					"Status code is 204": true
+				}
+			]
+		},
+		{
+			"id": "4f57f282-a483-41ed-af53-f2c811764a50",
+			"name": "Erstellt ein neues Quiz",
+			"url": "http://localhost:3000/api/quizzes",
+			"time": 62,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				62
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "e140b172-306d-40bd-a5e9-8e37a382a592",
+			"name": "Erstellt Multiple-Choice-Frage",
+			"url": "http://localhost:3000/api/quizzes/675d4dc443cba73e374af264/questions",
+			"time": 56,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				56
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "d2d65a3f-786f-487d-964d-03a41c086b1b",
+			"name": "Erstellt ein neues Quiz mit leerem Anfragekörper",
+			"url": "http://localhost:3000/api/quizzes",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Response status code is 400": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 400": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"Response status code is 400": true
+				}
+			]
+		},
+		{
+			"id": "3dd4677b-00fa-4965-9081-4b580383d6c7",
+			"name": "Erstellt Multiple-Choice-Frage mit leerem Anfragekörper",
+			"url": "http://localhost:3000/api/quizzes/675d4dc443cba73e374af264/questions",
+			"time": 4,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Response status code is 400": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 400": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"Response status code is 400": true
+				}
+			]
+		},
+		{
+			"id": "d89d54f3-608d-4fc7-8333-3867049be23b",
+			"name": "Aktualisiert den Quiz-Themenname mit leerem Anfragekörper",
+			"url": "http://localhost:3000/api/quizzes/675d4dc443cba73e374af264",
+			"time": 3,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3
+			],
+			"allTests": [
+				{
+					"Status code is 400": true
+				}
+			]
+		},
+		{
+			"id": "615bc56a-ea3d-4e1d-919a-3f7bc78ab609",
+			"name": "Aktualisiert eine Multiple-Choice-Frage mit leerem Anfragekörper",
+			"url": "http://localhost:3000/api/quizzes/675d4dc443cba73e374af264/questions/675d4dc443cba73e374af265",
+			"time": 3,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3
+			],
+			"allTests": [
+				{
+					"Status code is 400": true
+				}
+			]
+		},
+		{
+			"id": "c8acdda2-7b75-468e-ba52-0dbf38ead9d6",
+			"name": "Löscht das für den Test erstellte Quiz",
+			"url": "http://localhost:3000/api/quizzes/675d4dc443cba73e374af264/questions/675d4dc443cba73e374af265",
+			"time": 55,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				55
+			],
+			"allTests": [
+				{}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 1384,
+	"collection": {
+		"requests": [
+			{
+				"id": "bf433e36-3c48-4d93-96e2-af8550475fa0",
+				"method": "POST"
+			},
+			{
+				"id": "dec6beca-74c4-4a6b-9333-ce7e51979403",
+				"method": "POST"
+			},
+			{
+				"id": "1ecb6d3e-9326-4d3a-b34a-c2165380dd17",
+				"method": "GET"
+			},
+			{
+				"id": "32d93007-d4a9-4512-a845-0aa7e1a0b2dc",
+				"method": "GET"
+			},
+			{
+				"id": "0fce3633-1b8f-40d4-9ac7-a5c3881b3a20",
+				"method": "PUT"
+			},
+			{
+				"id": "2ec82724-9420-40d0-8020-d4ef1735d6b6",
+				"method": "PUT"
+			},
+			{
+				"id": "f6fc60b3-6407-4455-9dc2-e55957efa8f1",
+				"method": "DELETE"
+			},
+			{
+				"id": "a356e3ec-2aa7-4fad-9946-64e1446280ef",
+				"method": "DELETE"
+			},
+			{
+				"id": "4f57f282-a483-41ed-af53-f2c811764a50",
+				"method": "POST"
+			},
+			{
+				"id": "e140b172-306d-40bd-a5e9-8e37a382a592",
+				"method": "POST"
+			},
+			{
+				"id": "d2d65a3f-786f-487d-964d-03a41c086b1b",
+				"method": "POST"
+			},
+			{
+				"id": "3dd4677b-00fa-4965-9081-4b580383d6c7",
+				"method": "POST"
+			},
+			{
+				"id": "d89d54f3-608d-4fc7-8333-3867049be23b",
+				"method": "PUT"
+			},
+			{
+				"id": "615bc56a-ea3d-4e1d-919a-3f7bc78ab609",
+				"method": "PUT"
+			},
+			{
+				"id": "c8acdda2-7b75-468e-ba52-0dbf38ead9d6",
+				"method": "DELETE"
+			}
+		]
+	}
+}

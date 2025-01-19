@@ -1,0 +1,552 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Multiple-Choice-Quiz API",
+        "version": "1.0.0"
+    },
+    "paths": {
+       "/api/quizzes": {
+            "get": {
+                "description": "Liefert Informationen zu allen Quizzen",
+                "responses": {
+                    "200": {
+                        "description": "Array aus Objekten mit Quizinformation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "topic": {
+                                                "type": "string"
+                                            },
+                                            "_id": {
+                                                "type": "string"
+                                            },
+                                            "gameCode": {
+                                                "type": "string"
+                                            },
+                                            "quizSize": {
+                                                "type": "integer"
+                                            }
+                                        }
+                                    }
+                                }
+                            } 
+                        }
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/ServerError"
+                    }
+                }
+            },
+            "post": {
+                "description": "Erstellt ein neues Quiz",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "topic": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Objekt mit id des neuerstellten Dokumentes",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "insertedId": {
+                                            "type": "string"
+                                        }
+                                    }  
+                                }
+                            } 
+                        }
+                    },
+                    "400": {
+                        "description": "Ungültiger Anfragekörper: topic fehlt",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "topic must be present in request body"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/ServerError"
+                    }
+                }
+            } 
+       },
+       "/api/quizzes/{quizId}": {
+            "get": {
+                "description": "Liefert ein Quiz gemäß Id-Pfadparameter",
+                "parameters": [
+                    {
+                        "name": "quizId",
+                        "in": "path",
+                        "required": true,
+                        "description": "Die id des Quizzes",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Quizobjekt",
+                        "content": {
+                                "application/json": {
+                                    "schema": {
+                                        "type": "object",
+                                        "properties": {
+                                            "topic": {
+                                                "type": "string"
+                                            },
+                                            "_id": {
+                                                "type": "string"
+                                            },
+                                            "gameCode": {
+                                                "type": "string"
+                                            },
+                                            "questions": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "_id": {
+                                                            "type": "string"
+                                                        },
+                                                        "question": {
+                                                            "type": "string"
+                                                        },
+                                                        "answers": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "text": {
+                                                                    "type": "string"
+                                                                    },
+                                                                    "correct": {
+                                                                    "type": "boolean"
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                } 
+                            }
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/QuizNotFound"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/ServerError"
+                    }
+                }
+            },
+            "put": {
+                "description": "Aktualisiert den Quiz-Themenname",
+                "parameters": [
+                    {
+                        "name": "quizId",
+                        "in": "path",
+                        "required": true,
+                        "description": "Die id des Quizzes",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "topic": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "topic wurde erfolgreich aktualisiert",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "topic successfully updated"
+                                }
+                            }
+                        }           
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ValidationError"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/QuizNotFound"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/ServerError"
+                    }
+                }
+            },
+            "delete": {
+                "description": "Löscht ein Quiz inklusive aller zugehörigen Multiple-Choice-Fragen",
+                "parameters": [
+                    {
+                        "name": "quizId",
+                        "in": "path",
+                        "required": true,
+                        "description": "Die id des Quizzes, welches gelöscht werden soll",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Quiz wurde erfolgreich gelöscht"
+                    },
+                    "404": {
+                       "$ref": "#/components/responses/QuizNotFound"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/ServerError"
+                    }
+                }
+            }
+       },
+       "/api/quizzes/game/{gameCode}": {
+            "get": {
+                "description": "Liefert ein Quiz gemäß Spielcode-Pfadparameter",
+                "parameters": [
+                    {
+                        "name": "gameCode",
+                        "in": "path",
+                        "required": true,
+                        "description": "Der Spielcode",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Quizobjekt",
+                        "content": {
+                                "application/json": {
+                                    "schema": {
+                                        "type": "object",
+                                        "properties": {
+                                            "topic": {
+                                                "type": "string"
+                                            },
+                                            "quiz": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "_id": {
+                                                            "type": "string"
+                                                        },
+                                                        "question": {
+                                                            "type": "string"
+                                                        },
+                                                        "answers": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "text": {
+                                                                    "type": "string"
+                                                                    },
+                                                                    "correct": {
+                                                                    "type": "boolean"
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                } 
+                            }
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/QuizNotFound"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/ServerError"
+                    }
+                }
+            }
+       },
+       "/api/quizzes/{quizId}/questions": {
+            "post": {
+                "description": "Fügt eine neue Multiple-Choice-Frage zu einem Quiz hinzu",
+                "parameters": [
+                    {
+                        "name": "quizId",
+                        "in": "path",
+                        "required": true,
+                        "description": "Die id des Quizzes",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "question": {
+                                        "type": "string"
+                                    },
+                                    "answers": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "text": {
+                                                "type": "string"
+                                                },
+                                                "correct": {
+                                                "type": "boolean"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Multiple-Choice-Quiz wurde erfolgreich zu Quiz hinzugefügt",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "_id": {
+                                            "type": "string"
+                                        },
+                                        "question": {
+                                            "type": "string"
+                                        },
+                                        "answers": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "text": {
+                                                    "type": "string"
+                                                    },
+                                                    "correct": {
+                                                    "type": "boolean"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }  
+                                }
+                            } 
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ValidationError"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/QuizNotFound"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/ServerError"
+                    }
+                }
+            }
+       },
+       "/api/quizzes/{quizId}/questions/{questionId}": {
+            "delete": {
+                "description": "Löscht eine Multiple-Choice-Frage aus einem Quiz",
+                "parameters": [
+                    {
+                        "name": "quizId",
+                        "in": "path",
+                        "required": true,
+                        "description": "Die Quiz id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "questionId",
+                        "in": "path",
+                        "required": true,
+                        "description": "Die id der Frage",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Multiple-Choice-Frage wurden erfolgreich gelöscht"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/QuestionNotFound"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/ServerError"
+                    }
+                }
+            },
+            "put": {
+                "description": "Aktualisiert eine Multiple-Choice-Frage",
+                "parameters": [
+                    {
+                        "name": "quizId",
+                        "in": "path",
+                        "required": true,
+                        "description": "Die Quiz id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "questionId",
+                        "in": "path",
+                        "required": true,
+                        "description": "Die id der Frage",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "question": {
+                                        "type": "string"
+                                    },
+                                    "answers": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "text": {
+                                                "type": "string"
+                                                },
+                                                "correct": {
+                                                "type": "boolean"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Multiple-Choice-Frage wurde erfolgreich aktualisiert",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "quiz sucessfully updated"
+                                }
+                            }
+                        }           
+                    },
+                    "404": {
+                       "$ref": "#/components/responses/QuestionNotFound"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ValidationError"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/ServerError"
+                    }
+                }
+            }
+       }
+    },
+    "components": {
+        "responses": {
+            "ServerError": {
+                "description": "Internal server error",
+                "content": {
+                    "text/plain": {
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "QuizNotFound": {
+                "description": "Keine Übereinstimmung für Quiz id gefunden",
+                "content": {
+                    "text/plain": {
+                        "schema": {
+                            "type": "string",
+                            "example": "topic not found"
+                        }
+                    }
+                }
+            },
+            "QuestionNotFound": {
+                "description": "Keine Übereinstimmung für die Frage id gefunden",
+                "content": {
+                    "text/plain": {
+                        "schema": {
+                            "type": "string",
+                            "example": "topic not found"
+                        }
+                    }
+                }
+            },
+            "ValidationError": {
+                "description": "Anfragedaten-Validierung fehlgeschlagen",
+                "content": {
+                    "text/plain": {
+                        "schema": {
+                            "type": "string",
+                            "example": "Invalid request data"
+                        }
+                    }
+                }
+            }
+        }
+  }
+}

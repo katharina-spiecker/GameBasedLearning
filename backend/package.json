@@ -1,0 +1,15 @@
+{
+  "type": "module",
+  "author": "Katharina Spiecker",
+  "license": "CC BY-NC 4.0",
+  "scripts": {
+    "start": "node --env-file=.env server.js",
+    "dev": "node --env-file=.env --watch server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "mongodb": "^6.8.0",
+    "uuid": "^11.0.3"
+  }
+}

@@ -1,0 +1,165 @@
+{
+	"id": "190ee26f-592b-44da-bdb0-0884de263f40",
+	"name": "Functional testing Quizzes-API",
+	"timestamp": "2024-12-13T23:05:17.532Z",
+	"collection_id": "12750497-300ed7f5-8f64-4ae4-b63e-2eb3c4112b49",
+	"folder_id": "12750497-c5441fb3-b401-4f50-9e16-ebbd05e68ddb",
+	"environment_id": "0",
+	"totalPass": 5,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2024-12-13T23:05:16.068Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "e47207cf-d9a0-42b4-bdfe-5fe705453369",
+			"name": "Erstellt ein neues Quiz",
+			"url": "http://localhost:3000/api/quizzes",
+			"time": 976,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				976
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "896b45a2-2b85-408c-ba71-ea47a98e833f",
+			"name": "Erstellt Multiple-Choice-Frage",
+			"url": "http://localhost:3000/api/quizzes/675cbdadd07f934cc9b3f20a/questions",
+			"time": 77,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				77
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "d9ebfb4b-4608-4c6e-8edc-000afcb7f28a",
+			"name": "Speichert gameCode",
+			"url": "http://localhost:3000/api/quizzes/675cbdadd07f934cc9b3f20a",
+			"time": 78,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				78
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "78ec50d4-6e02-4531-8885-6ace903bc13f",
+			"name": "Liefert ein Quiz gemäß Spielcode-Pfadparameter",
+			"url": "http://localhost:3000/api/quizzes/game/f13087a8-e0c4-481b-bda4-419890be9ecd",
+			"time": 73,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response status code is 200": true,
+				"Content-Type header is application/json": true,
+				"Validate the quiz object": true,
+				"Topic field is present and is a non-empty string": true,
+				"Quiz question is a non-empty string": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate the quiz object": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Topic field is present and is a non-empty string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Quiz question is a non-empty string": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				73
+			],
+			"allTests": [
+				{
+					"Response status code is 200": true,
+					"Content-Type header is application/json": true,
+					"Validate the quiz object": true,
+					"Topic field is present and is a non-empty string": true,
+					"Quiz question is a non-empty string": true
+				}
+			]
+		},
+		{
+			"id": "97bf8833-8bdd-4d5a-8f68-b7cbe506bbb9",
+			"name": "Löscht ein Quiz inklusive aller zugehörigen Multiple-Choice-Fragen",
+			"url": "http://localhost:3000/api/quizzes/ut est",
+			"time": 4,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				4
+			],
+			"allTests": [
+				{}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 1208,
+	"collection": {
+		"requests": [
+			{
+				"id": "e47207cf-d9a0-42b4-bdfe-5fe705453369",
+				"method": "POST"
+			},
+			{
+				"id": "896b45a2-2b85-408c-ba71-ea47a98e833f",
+				"method": "POST"
+			},
+			{
+				"id": "d9ebfb4b-4608-4c6e-8edc-000afcb7f28a",
+				"method": "GET"
+			},
+			{
+				"id": "78ec50d4-6e02-4531-8885-6ace903bc13f",
+				"method": "GET"
+			},
+			{
+				"id": "97bf8833-8bdd-4d5a-8f68-b7cbe506bbb9",
+				"method": "DELETE"
+			}
+		]
+	}
+}
