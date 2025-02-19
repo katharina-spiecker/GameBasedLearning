@@ -5,14 +5,14 @@ import TextArea from "../../../components/TextArea.jsx";
 import PrimaryButton from "../../../components/PrimaryButton.jsx";
 
 /**
- * Die Komponente stellt ein Modal zum Erstellen einer Multiple-Choice-Frage bereit.
- * Ermöglicht das Erstellen der Frage und Antworten und die Auswahl der korrekten Antwort.
+ * The component provides a modal for creating a multiple-choice question.
+ * It allows creating the question and answers and selecting the correct answer.
  *
  * @component
- * @param {boolean} isOpen Gibt an, ob das Modal geöffnet oder geschlossen.
- * @param {Function} closeModal Die Funktion, welche zum Schließen des Modals aufgerufen wird.
- * @param {Function} saveNewHandler Die Funktion, welche beim Klick auf den Hauptbutton aufgerufen wird.
- * @returns {JSX.Element} Die CreateMultipleChoiceModal Komponente.
+ * @param {boolean} isOpen Indicates whether the modal is open or closed.
+ * @param {Function} closeModal The function that is called to close the modal.
+ * @param {Function} saveNewHandler The function that is called when clicking the main button.
+ * @returns {JSX.Element} The CreateMultipleChoiceModal component.
  */
 function CreateMultipleChoiceModal({ isOpen, closeModal, saveNewHandler }) {
   const [newMultipleChoiceQuiz, setNewMultipleChoiceQuiz] = useState({
@@ -47,11 +47,10 @@ function CreateMultipleChoiceModal({ isOpen, closeModal, saveNewHandler }) {
   }
 
   /**
-   * Bearbeitet Frage.
-   * @param {string} newText neuer Text für die Frage
+   * Edits question.
+   * @param {string} newText New question text
    */
   function updateQuestion(newText) {
-    // aktualisiere Fragen, kopiere existierende Antworten
     setNewMultipleChoiceQuiz((prevState) => {
       return {
         quizId: prevState.quizId,
@@ -62,14 +61,13 @@ function CreateMultipleChoiceModal({ isOpen, closeModal, saveNewHandler }) {
   }
 
   /**
-   * Aktualisiert Antworttext.
-   * @param {number} index Index der Antwort im answers array vom quiz Objekt
-   * @param {string} newText neuer Antworttext
+   * Updates answer text.
+   * @param {number} index Index of answer in answers array of quiz object
+   * @param {string} newText new answer text
    */
   function updateAnswer(index, newText) {
     setNewMultipleChoiceQuiz((prevState) => {
-      // speichere aktualisierte Antworten
-      // verwende structuredClone da Array aus Objekten
+      // saves updated answers in state
       const updatedAnswers = structuredClone(prevState.answers);
       updatedAnswers[index].text = newText;
 
@@ -82,14 +80,14 @@ function CreateMultipleChoiceModal({ isOpen, closeModal, saveNewHandler }) {
   }
 
   /**
-   * Speichert die Auswahl der richtigen Antwort.
+   * Saves correct answer selection.
    * @param {number} index
    */
   function updateCorrectAnswer(index) {
     setNewMultipleChoiceQuiz((prevState) => {
       const updatedAnswers = structuredClone(prevState.answers);
 
-      // setzte alle auf false, außer die, die neu ausgewählt wurde
+      // set all to false besides selected one
       updatedAnswers.forEach((answer, answerIndex) => {
         if (index === answerIndex) {
           answer.correct = true;
@@ -107,7 +105,7 @@ function CreateMultipleChoiceModal({ isOpen, closeModal, saveNewHandler }) {
   }
 
   /**
-   * Fügt einem Quiz eine neue Antwortmöglichkeit hinzu.
+   * Adds a new answer to a quiz
    */
   function addNewAnswer() {
     setNewMultipleChoiceQuiz((prevState) => {
@@ -125,7 +123,7 @@ function CreateMultipleChoiceModal({ isOpen, closeModal, saveNewHandler }) {
   }
 
   /**
-   * Speichert Quiz und setzt Modal zurück.
+   * Saves quiz and resets modal.
    */
   function onClickSave() {
     saveNewHandler(newMultipleChoiceQuiz);

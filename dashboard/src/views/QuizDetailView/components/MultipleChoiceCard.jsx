@@ -3,13 +3,13 @@ import { faPenToSquare, faTrashCan } from "@fortawesome/free-regular-svg-icons";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
 /**
- * Die Komponente erzeugt eine Box, welche eine Frage, die Antwortmöglichkeiten,
- * ein Button zum Bearbeiten und ein Button zum Löschen darstellt.
+ * The component creates a box that displays a question, the answer choices,
+ * an edit button, and a delete button.
  *
  * @component
- * @param {Object} content Das Objekte, welches die Multiple-Choice-Frage repräsentiert.
- * @param {Function} openModal Die Funktion, welche das Modal zum Bearbeiten der Multiple-Choice-Frage öffnet.
- * @returns {JSX.Element} Die MultipleChoiceCard Komponente.
+ * @param {Object} content The object that represents the multiple-choice question.
+ * @param {Function} openModal The function that opens the modal for editing the multiple-choice question.
+ * @returns {JSX.Element} The MultipleChoiceCard component.
  */
 function MultipleChoiceCard({ content, openModal, deleteQuizHandler }) {
   return (

@@ -1,10 +1,10 @@
 /**
- * Die Komponente stellt einen Wrapper für die Headerzeile einer Seite zur Verfügung.
- * Kann verwendet werden damit die Headerzeile standardisiertes Styling verwendet.
+ * The component provides a wrapper for the header row of a page.
+ * It ensures that the header row uses standardized styling.
  *
  * @component
- * @param {ReactNode} children Der Inhalt der Wrapperkomponente.
- * @returns {JSX.Element} Die HeadingContainer Komponente.
+ * @param {ReactNode} children The content of the wrapper component.
+ * @returns {JSX.Element} The HeadingContainer component.
  */
 function HeadingContainer({ children }) {
   return (
