@@ -6,16 +6,16 @@ import TextArea from "../../../components/TextArea.jsx";
 import PrimaryButton from "../../../components/PrimaryButton.jsx";
 
 /**
- * Die Komponente stellt ein Modal zum Bearbeiten einer existierenden Multiple-Choice-Frage bereit.
- * Ermöglicht das Bearbeiten der Frage und Antworten, das Löschen oder Hinzufügen von Antwortmöglichkeiten
- * und die Auswahl der korrekten Antwort.
+ * The component provides a modal for editing an existing multiple-choice question.
+ * It allows editing the question and answers, deleting or adding answer choices,
+ * and selecting the correct answer.
  *
  * @component
- * @param {boolean} isOpen Gibt an, ob das Modal geöffnet oder geschlossen ist.
- * @param {Function} closeModal Die Funktion, welche zum Schließen des Modals aufgerufen wird.
- * @param {Function} saveEditHandler Die Funktion, welche zum Speichern der Änderungen aufgerufen wird.
- * @param {Objekt} initialContent Enthält den Zustand einer Multiple-Choice-Frage vor dem Bearbeiten.
- * @returns {JSX.Element} Die EditMultipleChoiceModal Komponente.
+ * @param {boolean} isOpen Indicates whether the modal is open or closed.
+ * @param {Function} closeModal The function that is called to close the modal.
+ * @param {Function} saveEditHandler The function that is called to save the changes.
+ * @param {Object} initialContent Contains the state of a multiple-choice question before editing.
+ * @returns {JSX.Element} The EditMultipleChoiceModal component.
  */
 function EditMultipleChoiceModal({isOpen, closeModal, saveEditHandler, initialContent}) {
   const [editQuizContent, setEditQuizContent] = useState(initialContent);
@@ -26,8 +26,8 @@ function EditMultipleChoiceModal({isOpen, closeModal, saveEditHandler, initialCo
   }
 
   /**
-   * Bearbeitet existierende Fragen und Antworten.
-   * @param {string} newText neuer Text für die Frage
+   * Edits existing questions and answers.
+   * @param {string} newText New text for the question.
    */
   function updateQuestion(newText) {
     // update question, copy existing answers
@@ -41,13 +41,13 @@ function EditMultipleChoiceModal({isOpen, closeModal, saveEditHandler, initialCo
   }
 
   /**
-   * Speichert die Auswahl der richtigen Antwort für bearbeitete Quizfragen.
+   * Saves selection of correct answer.
    * @param {number} index
    */
   function updateCorrectAnswer(index) {
     setEditQuizContent((prevState) => {
       const updatedQuestion = structuredClone(prevState); // deep clone
-      // setzte alle auf false, außer die, die neu ausgewählt wurde
+      // set all to false besides selected one
       updatedQuestion.answers.forEach((answer, answerIndex) => {
         if (index === answerIndex) {
           answer.correct = true;
@@ -60,9 +60,9 @@ function EditMultipleChoiceModal({isOpen, closeModal, saveEditHandler, initialCo
   }
 
   /**
-   * Speichert veränderten oder neu erstellten Antworttext
-   * @param {number} index Index der Antwort im answers array von quiz Objekt
-   * @param {string} newText neuer Antworttext
+   * Saves edited or newly created answer text
+   * @param {number} index Index of answer in answers array in quiz object
+   * @param {string} newText new answer text
    */
   function updateAnswer(index, newText) {
     setEditQuizContent((prevState) => {
@@ -73,7 +73,7 @@ function EditMultipleChoiceModal({isOpen, closeModal, saveEditHandler, initialCo
   }
 
   /**
-   * Fügt der Multiple-Choice-Frage eine neue Antwortmöglichkeit hinzu.
+   * adds new answer with default values to edit quiz state.
    */
   function addNewAnswer() {
     setEditQuizContent((prevState) => {
@@ -91,10 +91,9 @@ function EditMultipleChoiceModal({isOpen, closeModal, saveEditHandler, initialCo
    }
 
    /**
-   * Löscht eine Antwortmöglichkeit der Multiple-Choice-Frage.
+   * Deletes answer option of multiple-choice-question.
    */
    function deleteAnswerHandler(deleteIndex) {
-    console.log("deleteAnswerHandler called with index", deleteIndex)
     setEditQuizContent((prevState) => {
         return {
           ...prevState,

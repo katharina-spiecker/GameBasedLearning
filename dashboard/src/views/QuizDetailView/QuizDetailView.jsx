@@ -10,10 +10,10 @@ import PrimaryButton from "../../components/PrimaryButton.jsx";
 import HeadingContainer from "../../components/HeadingContainer.jsx";
 
 /**
- * Die Komponente generiert die Quidetailseite, welche alle Multiple-Choice-Fragen zu einem bestimmten Quiz anzeigt.
+ * The component generates the quiz detail page, which displays all multiple-choice questions for a specific quiz.
  *
  * @component
- * @returns {JSX.Element} Die QuizDetailView Komponente.
+ * @returns {JSX.Element} The QuizDetailView component.
  */
 function QuizDetailView() {
   const { id } = useParams();

@@ -4,16 +4,15 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { ReactNode } from "react";
 
 /**
- *
- * Die Komponente stellt ein Modal mit grundlegenden Funktionen (öffnen und schließen) bereit.
+ * The component provides a modal with basic functions (open and close).
  *
  * @component
- * @param {boolean} isOpen Gibt an, ob das Modal geöffnet oder geschlossen ist.
- * @param {Function} closeModal Die Funktion, welche zum Schließen des Modals aufgerufen wird.
- * @param {string} saveText Der Text welcher in dem Hauptbutton erscheint.
- * @param {ReactNode} children Der Inhalt des Modals.
- * @param {Function} saveHandler Die Funktion, welche beim Klick auf den Hauptbutton aufgerufen wird.
- * @returns {JSX.Element} Die Modal Komponente.
+ * @param {boolean} isOpen Indicates whether the modal is open or closed.
+ * @param {Function} closeModal The function that is called to close the modal.
+ * @param {string} saveText The text displayed on the main button.
+ * @param {ReactNode} children The content of the modal.
+ * @param {Function} saveHandler The function that is called when clicking the main button.
+ * @returns {JSX.Element} The Modal component.
  */
 function Modal({ isOpen, closeModal, saveText, children, saveHandler }) {
   return (

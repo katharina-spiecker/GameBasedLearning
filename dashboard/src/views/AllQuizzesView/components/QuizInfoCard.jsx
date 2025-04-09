@@ -5,14 +5,14 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 /**
- * Diese Komponente zeigt ein Quiz an.
- * Es wird das Quizthema, die Anzahl an Fragen in dem Quiz, ein Löschen-Icon und ein Bearbeiten-Icon angezeigt.
- * Das Bearbeiten-Icon führt zu der Quiz-Detailseite.
+ * This component displays an overview of a quiz.
+ * It shows the quiz topic, the number of questions in the quiz, a delete icon, and an edit icon.
+ * The edit icon leads to the quiz detail page.
  *
  * @component
- * @param {Objekt} quiz Die Quizdaten darunter topic, _id, quizSize und gameCode.
- * @param {Function} deleteHandler Die Funktion, welche das Quiz inklusive aller dazugehörigen Multiple-Choice-Fragen löscht.
- * @returns {JSX.Element} Die QuizInfoCard Komponente.
+ * @param {Objekt} quiz The quiz data, including topic, _id, quizSize, and gameCode.
+ * @param {Function} deleteHandler The function that deletes the quiz, including all associated multiple-choice questions.
+ * @returns {JSX.Element} The QuizInfoCard component.
  */
 function QuizInfoCard({ quiz, deleteHandler }) {
   const [isCopied, setIsCopied] = useState(false);

@@ -1,10 +1,10 @@
 /**
- * Die Komponente stellt einen Button mit standardisiertem Styling bereit.
+ * The component provides a button with standardized styling.
  *
  * @component
- * @param {string} text Der Button Text.
- * @param {Function} clickHandler Die Event Handler Funktion für das onClick Event.
- * @returns {JSX.Element} Die PrimaryButton Komponente.
+ * @param {string} text The button text.
+ * @param {Function} clickHandler The event handler function for the onClick event.
+ * @returns {JSX.Element} The PrimaryButton component.
  */
 function PrimaryButton({ text, clickHandler }) {
   return (

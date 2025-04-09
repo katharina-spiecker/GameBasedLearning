@@ -6,10 +6,10 @@ import TextArea from "../../components/TextArea.jsx";
 import HeadingContainer from "../../components/HeadingContainer.jsx";
 
 /**
- * Die Komponente generiert die Übersichtsseite für alle Quizze.
+ * Generates the overview page for all quizzes.
  *
  * @component
- * @returns {JSX.Element} Die AllQuizzesView Komponente.
+ * @returns {JSX.Element} AllQuizzesView component.
  */
 function AllQuizzesView() {
   const [quizzes, setQuizzes] = useState([]);
@@ -32,7 +32,7 @@ function AllQuizzesView() {
   }, []);
 
   /**
-   * Fügt dem quizzes array ein neues quiz Objekt hinzu.
+   * Adds a new quiz object to the quizzes array.
    */
   function saveNewQuiz() {
     fetch("http://localhost:3000/api/quizzes", {
@@ -70,7 +70,7 @@ function AllQuizzesView() {
   }
 
   /**
-   * Löscht ein topic Objekt vom topic state
+   * Deletes a quiz
    * @param {number} index
    */
   function deleteHandler(index) {
