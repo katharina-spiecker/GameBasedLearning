@@ -163,11 +163,11 @@ function QuizDetailView() {
     <>
       <Link to="/" className="block mb-4">
         <FontAwesomeIcon icon={faArrowLeft} className="pe-1"/>
-        Zurück zur Übersichtsseite
+        All quizzes
       </Link>
       <HeadingContainer>
         <span className="inline-block md:w-1/3">
-          {questions.length} {questions.length === 1 ? "Frage" : "Fragen"}
+          {questions.length} {questions.length === 1 ? "Question" : "Questions"}
         </span>
         <div className="relative">
           {editNameActive ? (
@@ -186,7 +186,7 @@ function QuizDetailView() {
 
         <div className="mt-2 md:mt-0 md:w-1/3 md:text-end">
           <PrimaryButton
-            text="Neue Frage"
+            text="New question"
             clickHandler={() => openModal("create")}
           />
         </div>

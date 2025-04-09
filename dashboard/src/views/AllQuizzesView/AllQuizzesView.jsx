@@ -96,12 +96,12 @@ function AllQuizzesView() {
     <>
       <HeadingContainer>
         <span className="inline-block md:w-1/3">
-          {quizzes.length} {quizzes.length === 1 ? "Quiz" : "Quizze"}
+          {quizzes.length} {quizzes.length === 1 ? "Quiz" : "Quizzes"}
         </span>
-        <h1 className="md:text-center text-2xl">Alle Quizze</h1>
+        <h1 className="md:text-center text-2xl">All Quizzes</h1>
         <div className="mt-2 md:mt-0 md:w-1/3 md:text-end">
           <PrimaryButton
-            text="Neues Quizthema"
+            text="New quiz"
             clickHandler={() => setModalIsOpen(true)}
           />
         </div>
@@ -119,11 +119,11 @@ function AllQuizzesView() {
       <Modal
         closeModal={resetModal}
         isOpen={modalIsOpen}
-        saveText="Speichern"
+        saveText="Save"
         saveHandler={saveNewQuiz}
       >
         <TextArea
-          label="Neues Thema"
+          label="New quiz topic"
           id="new-topic"
           changeHandler={(newText) => setNewTopicName(newText)}
         />

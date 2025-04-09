@@ -33,15 +33,15 @@ function QuizInfoCard({ quiz, deleteHandler }) {
      
     <div className="font-medium">{quiz.topic}</div>
     <button onClick={copyGameCode} className="bg-slate-200 hover:bg-slate-300 px-2 py-1 rounded-md mt-4 text-sm">
-        <span className="me-1">Kopiere Spielcode</span>
+        <span className="me-1">Copy gamecode</span>
         <FontAwesomeIcon icon={isCopied ? faCheck : faCopy} />
     </button>
    
       <span className="absolute topic-card__number text-gray-500">
-        {quiz.quizSize} {quiz.quizSize === 1 ? "Frage" : "Fragen"}
+        {quiz.quizSize} {quiz.quizSize === 1 ? "Question" : "Questions"}
       </span>
       <button onClick={() => navigate(`/quiz/${quiz._id}`)} className="card__edit-icon absolute hover:cursor-pointer text-sm">
-        <span className="me-1">Bearbeiten</span>
+        <span className="me-1">Edit</span>
         <FontAwesomeIcon icon={faPenToSquare} />
       </button>
       

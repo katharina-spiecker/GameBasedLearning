@@ -142,7 +142,7 @@ function CreateMultipleChoiceModal({ isOpen, closeModal, saveNewHandler }) {
 
           <div className="bg-white shadow shadow-slate-300 rounded-2xl p-4 mt-5 z-1 min-w-80 min-h-80 fixed top-0 mx-4 mx-auto left-1/2 -translate-x-1/2 md:w-96 pb-20">
             <button className="absolute top-4 right-4 flex items-center hover:cursor-pointer" onClick={handleClose}>
-                <span className="text-sm pe-1 pb-0.5">Eingaben verwerfen</span>
+                <span className="text-sm pe-1 pb-0.5">Discard</span>
                 <FontAwesomeIcon
                 icon={faXmark}
                 />
@@ -151,7 +151,7 @@ function CreateMultipleChoiceModal({ isOpen, closeModal, saveNewHandler }) {
             <div className="mb-5">
               <TextArea
                 id="new-question"
-                label="Frage"
+                label="Question"
                 changeHandler={updateQuestion}
               />
             </div>
@@ -173,7 +173,7 @@ function CreateMultipleChoiceModal({ isOpen, closeModal, saveNewHandler }) {
                 <TextArea
                   key={index}
                   id={"new-answer" + index}
-                  label={"Antwort " + (index + 1)}
+                  label={"Answer " + (index + 1)}
                   changeHandler={(newText) => updateAnswer(index, newText)}
                 />
               </div>
@@ -185,13 +185,13 @@ function CreateMultipleChoiceModal({ isOpen, closeModal, saveNewHandler }) {
                 className="border border-black p-1 rounded mt-3 ms-7"
               >
                 <FontAwesomeIcon icon={faCirclePlus} className="me-2" />
-                {newMultipleChoiceQuiz.answers.length + 1}. Antwort hinzufügen
+                {newMultipleChoiceQuiz.answers.length + 1}. answer
               </button>
             )}
 
             <div className="absolute left-0 bottom-5 text-center w-full">
               <PrimaryButton
-                text="Speichern"
+                text="Save"
                 clickHandler={onClickSave}
               />
             </div>
